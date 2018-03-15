@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import WeiXin from '../../utils/weixin'
+import {dispatch} from '../../utils/dispatch'
 export default {
   name: 'SpeakArea',
   components: {},
@@ -21,9 +23,16 @@ export default {
   },
   methods: {
     onRecordBegin() {
+      wx.startRecord()
     },
     onRecordEnd() {
-      console.log('end')
+      wx.stopRecord({
+        success: function (res) {
+          let localId = res.localId
+          alert(localId)
+          WeiXin.uploadVoice(localId, this, dispatch)
+        }
+      })
     }
   }
 }

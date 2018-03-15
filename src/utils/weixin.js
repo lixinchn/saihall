@@ -14,11 +14,11 @@ export default {
         url: url,
       })
 
-      this.config(noncestr, timestamp, url, ticket, sig)
+      this.config(noncestr, timestamp, url, ticket, sig, self, dispatch)
     })
   },
 
-  config(noncestr, timestamp, url, ticket, sig) {
+  config(noncestr, timestamp, url, ticket, sig, self, dispatch) {
     wx.config({
       debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: 'wxe15979ce3adafcd9', // 必填，企业号的唯一标识，此处填写企业号corpid
@@ -30,17 +30,38 @@ export default {
 
     wx.ready(function(){
       console.log('success')
-      wx.startRecord()
       wx.onVoiceRecordEnd({
           // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-          complete: function (res) {
-              var localId = res.localId;
+          complete: (res) => {
+            var localId = res.localId
+            this.uploadVoice(localId, self, dispatch)
           }
-      });
+      })
     })
 
     wx.error(function(res){
       console.log('error')
+    })
+  },
+
+  uploadVoice(localId, self, dispatch) {
+    wx.uploadVoice({
+      localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+      isShowProgressTips: 1,// 默认为1，显示进度提示
+      success: (res) => {
+        var serverId = res.serverId // 返回音频的服务器端ID
+        alert(serverId)
+        this.noticeServerId(serverId, self, dispatch)
+      }
+    })
+  },
+
+  noticeServerId(serverId, self, dispatch) {
+    const data = {
+      serverId: serverId,
+    }
+    dispatch(self, ['WEIXIN_Translate', data], (response) => {
+      alert(JSON.stringify(response))
     })
   },
 
