@@ -8,6 +8,7 @@
       <left-talking-bubble :firstLine="VoiceprintData.init.firstLine"
                            :secondLine="VoiceprintData.init.secondLine"
                            :hint="VoiceprintData.init.hint"></left-talking-bubble>
+      <right-talking-bubble :answer="answer"></right-talking-bubble>
     </div>
     <div class="tail-area">
       <speak-area></speak-area>
@@ -19,16 +20,18 @@
 import {translateTimestampGetDatetime} from '../utils/moment'
 import data from '../utils/voice_print_data'
 import LeftTalkingBubble from './extension/LeftTalkingBubble'
+import RightTalkingBubble from './extension/RightTalkingBubble'
 import SpeakArea from './extension/SpeakArea'
 import {dispatch} from '../utils/dispatch'
 import WeiXin from '../utils/weixin'
 export default {
   name: 'Voiceprint',
-  components: {LeftTalkingBubble, SpeakArea},
+  components: {LeftTalkingBubble, SpeakArea, RightTalkingBubble},
   data () {
     return {
       date: this.$route.query.date || translateTimestampGetDatetime(Date.now()),
       VoiceprintData: data,
+      answer: '您好，我叫汪仔，是搜狗的智能机器人。欢迎您莅临我们的展厅，体验搜狗黑科技',
     }
   },
   created() {

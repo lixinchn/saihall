@@ -29,7 +29,6 @@ export default {
       wx.stopRecord({
         success: function (res) {
           let localId = res.localId
-          alert(localId)
           WeiXin.uploadVoice(localId, this, dispatch)
         }
       })

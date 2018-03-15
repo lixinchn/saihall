@@ -31,11 +31,11 @@ export default {
     wx.ready(function(){
       console.log('success')
       wx.onVoiceRecordEnd({
-          // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-          complete: (res) => {
-            var localId = res.localId
-            this.uploadVoice(localId, self, dispatch)
-          }
+        // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+        complete: (res) => {
+          var localId = res.localId
+          this.uploadVoice(localId, self, dispatch)
+        }
       })
     })
 
@@ -50,7 +50,6 @@ export default {
       isShowProgressTips: 1,// 默认为1，显示进度提示
       success: (res) => {
         var serverId = res.serverId // 返回音频的服务器端ID
-        alert(serverId)
         this.noticeServerId(serverId, self, dispatch)
       }
     })

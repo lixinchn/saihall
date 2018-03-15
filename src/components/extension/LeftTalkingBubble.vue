@@ -54,6 +54,7 @@ export default {
 		width: calc(100% - 5em);
 		float: left;
 		position: relative;
+    min-height: 33px;
     left: 15px;
     border: 5px solid transparent;
     border-image-source: url(/static/img/voiceprint/left-bubble.png);
