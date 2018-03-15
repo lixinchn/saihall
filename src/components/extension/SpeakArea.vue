@@ -1,0 +1,67 @@
+<template>
+  <div class="container">
+    <p class="result">{{result}}</p>
+    <div class="microphone-container">
+      <div class="microphone" @touchstart="onRecordBegin" @touchend="onRecordEnd"></div>
+    </div>
+    <p class="notice">我们将获取您的声纹，在体验当天用听声识人体验项</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'SpeakArea',
+  components: {},
+  data () {
+    return {
+      result: '',
+    }
+  },
+  created() {
+    console.log(wx)
+  },
+  methods: {
+    onRecordBegin() {
+    },
+    onRecordEnd() {
+      console.log('end')
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  .result {
+    height: 2em;
+    width: 100%;
+    margin: 0;
+  }
+
+  .microphone-container {
+    .microphone {
+      background: url(/static/img/voiceprint/speak.png) no-repeat;
+      background-size: 100% 100%;
+      margin: 0 auto;
+      width: 5em;
+      height: 5em;
+
+      &:active {
+        background: url(/static/img/voiceprint/speak-active.png) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .notice {
+    font-size: 0.8em;
+    color: #5e7cf5;
+    opacity: 0.7;
+    margin: 0.3em 0 0 0;
+  }
+}
+</style>
