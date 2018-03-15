@@ -37,6 +37,8 @@ export default {
   created() {
     document.title = '搜狗体验厅邀请函'
     this.weixinInit()
+    alert(this.$route.query.code)
+    alert(location.href)
   },
   methods: {
     weixinInit() {
