@@ -37,13 +37,24 @@ export default {
   created() {
     document.title = '搜狗体验厅邀请函'
     this.weixinInit()
-    alert(this.$route.query.code)
-    alert(location.href)
+    this.getUserInfo()
   },
   methods: {
     weixinInit() {
       WeiXin.init(this, dispatch)
-    }
+    },
+    getUserInfo() {
+      let code = this.getCode()
+      if (code) {
+        dispatch(this, ['WEIXIN_GetUserInfo', {code: code}], (response) => {
+          console.log(response)
+        })
+      }
+    },
+    getCode() {
+      let url = new URL(location.href)
+      return url.searchParams.get('code')
+    },
   },
 }
 </script>

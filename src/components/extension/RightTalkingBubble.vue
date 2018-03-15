@@ -1,6 +1,6 @@
 <template>
   <div class="container" :style="autoStyle">
-    <img src="/static/img/voiceprint/avatar.png" class="avatar">
+    <img src="userInfo.headimgurl" class="avatar">
     <div class="bubble">
       {{answer}}
     </div>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: 'RightTalkingBubble',
   props: {
@@ -29,7 +30,10 @@ export default {
       if (this.marginTop)
         style['margin-top'] = '10px'
       return style
-    }
+    },
+    ...mapGetters([
+      'userInfo'
+    ])
   }
 }
 </script>
