@@ -1,4 +1,5 @@
-import {API_VOICEPRINT_Translate} from 'api/voiceprint'
+import {API_VOICEPRINT_Translate} from '../../api/voiceprint'
+import {module_base_func} from './base'
 
 const voiceprint = {
   state: {
@@ -8,6 +9,8 @@ const voiceprint = {
 
   },
   actions: {
-    
+    VOICEPRINT_Translate: module_base_func(API_VOICEPRINT_Translate),
   }
 }
+
+export default voiceprint
