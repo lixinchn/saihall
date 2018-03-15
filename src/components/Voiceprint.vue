@@ -20,6 +20,8 @@ import {translateTimestampGetDatetime} from '../utils/moment'
 import data from '../utils/voice_print_data'
 import LeftTalkingBubble from './extension/LeftTalkingBubble'
 import SpeakArea from './extension/SpeakArea'
+import {dispatch} from '../utils/dispatch'
+import WeiXin from '../utils/weixin'
 export default {
   name: 'Voiceprint',
   components: {LeftTalkingBubble, SpeakArea},
@@ -31,6 +33,12 @@ export default {
   },
   created() {
     document.title = '搜狗体验厅邀请函'
+    this.weixinInit()
+  },
+  methods: {
+    weixinInit() {
+      WeiXin.init(this, dispatch)
+    }
   },
 }
 </script>

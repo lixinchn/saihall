@@ -3,7 +3,7 @@ import store from '../../store'
 
 export const create_params = {
   timeout: 25000,                  // 请求超时时间
-  withCredentials: true,
+  withCredentials: false,
 }
 
 export const request_params = {
@@ -27,8 +27,7 @@ export const request_params = {
 
 export const response_params = {
   response: response => {
-    if (response.data.status !== 0 && !response.data.status) {
-      alert('发生错误，请稍后再试')
+    if (response.data.code === 0) {
       return Promise.reject('内部错误')
     }
     return response

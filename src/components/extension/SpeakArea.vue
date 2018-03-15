@@ -18,7 +18,6 @@ export default {
     }
   },
   created() {
-    console.log(wx)
   },
   methods: {
     onRecordBegin() {

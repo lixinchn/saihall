@@ -4,7 +4,7 @@ import {create_params, request_params, response_params} from './base'
 // 创建axios实例
 const service = axios.create({
   ...create_params,
-  baseURL: location.protocol + '//api-' + location.host, // baseURL: process.env.BASE_API, // api的base_url
+  baseURL: 'http://navi.mse.sogou.com/', // baseURL: process.env.BASE_API, // api的base_url
 })
 
 // request拦截器
