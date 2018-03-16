@@ -61,9 +61,11 @@ export default {
       serverId: serverId,
     }
     alert(JSON.stringify(data))
+    try {
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
       alert(JSON.stringify(response))
     })
+  } catch(e) {alert(JSON.stringify(e))}
   },
 
   getJSAPITicket(self, dispatch, callback) {
