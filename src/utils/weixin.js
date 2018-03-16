@@ -60,6 +60,7 @@ export default {
     const data = {
       serverId: serverId,
     }
+    alert(JSON.stringify(data))
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
       alert(JSON.stringify(response))
     })
