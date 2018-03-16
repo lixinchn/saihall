@@ -64,6 +64,8 @@ export default {
   .microphone-container {
     width: 90%;
     margin: 0 auto;
+    user-select: none;
+    -webkit-touch-callout: none;
 
     .microphone {
       background: url(/static/img/voiceprint/speak.png) no-repeat;
