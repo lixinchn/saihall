@@ -6,7 +6,7 @@ export function API_WEIXIN_GetJSAPITicket() {
 }
 
 export function API_WEIXIN_Translate(data) {
-  return fetch_wrapper('recog_service', data)
+  return fetch_wrapper('translate', data)
 }
 
 export function API_WEIXIN_GetUserInfo(data) {
