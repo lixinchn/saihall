@@ -20,6 +20,7 @@ export default {
     }
   },
   created() {
+    this.downloadMicrophoneWaveImg()
   },
   methods: {
     onRecordBegin() {
@@ -32,7 +33,14 @@ export default {
           WeiXin.uploadVoice(localId, this, dispatch)
         }
       })
-    }
+    },
+    downloadMicrophoneWaveImg() {
+      for (let i = 1; i <= 36; ++i) {
+        let img = document.createElement('img')
+        img.src = `/static/img/voiceprint/microphone/microphone (${i}).png`
+        document.body.appendChild(img)
+      }
+    },
   }
 }
 </script>
@@ -50,6 +58,9 @@ export default {
   }
 
   .microphone-container {
+    width: 90%;
+    margin: 0 auto;
+
     .microphone {
       background: url(/static/img/voiceprint/speak.png) no-repeat;
       background-size: 100% 100%;

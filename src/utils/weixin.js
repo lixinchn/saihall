@@ -90,5 +90,13 @@ export default {
       text += possible.charAt(Math.floor(Math.random() * possible.length))
 
     return text
+  },
+
+  getOpenId() {
+    return localStorage.getItem('openId')
+  },
+
+  setOpenId(openId) {
+    localStorage.setItem('openId', openId)
   }
 }
