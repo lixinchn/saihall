@@ -52,7 +52,7 @@ export default {
         if (openId)
           data.openid = openId
         dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-          if (!response.code) {
+          if (!response.data.code) {
             alert('没有用户信息，准备跳转')
             return
           }
