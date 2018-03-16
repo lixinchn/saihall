@@ -10,5 +10,5 @@ export function API_WEIXIN_Translate(data) {
 }
 
 export function API_WEIXIN_GetUserInfo(data) {
-  return fetch_wrapper('weixin/getUserInfo', data)
+  return fetch_wrapper('weixin/userLogin', data)
 }

@@ -33,6 +33,7 @@ export default {
       wx.onVoiceRecordEnd({
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
         complete: (res) => {
+          self.recording = false
           var localId = res.localId
           this.uploadVoice(localId, self, dispatch)
         }

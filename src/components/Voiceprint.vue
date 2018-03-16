@@ -46,8 +46,8 @@ export default {
     getUserInfo() {
       let code = this.getCode()
       if (code) {
-        dispatch(this, ['WEIXIN_GetUserInfo', {code: code}], (response) => {
-          console.log(response)
+        dispatch(this, ['WEIXIN_GetUserInfo', {code: code, openid: WeiXin.getOpenId()}], (response) => {
+          alert(JSON.stringify(response))
         })
       }
     },
