@@ -7,7 +7,7 @@
  * always_run_func(optional): function. 请求不论成功失败都要执行的函数
  */
 export function dispatch(self, params, callback, always_run_func = null) {
-  alert(JSON.stringify(self))
+  alert(self)
   alert(JSON.stringify(params))
   try {
   self.$store.dispatch(...params).then((data = {}) => {
