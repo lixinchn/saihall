@@ -52,7 +52,14 @@ export default {
         if (openId)
           data.openid = openId
         dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-          alert(JSON.stringify(response))
+          if (!response.code) {
+            alert('没有用户信息，准备跳转')
+            return
+          }
+
+          // 存一下openId
+          alert(response.data.openid)
+          WeiXin.setOpenId(response.data.openid)
         })
       }
     },

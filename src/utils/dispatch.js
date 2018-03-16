@@ -9,8 +9,8 @@
 export function dispatch(self, params, callback, always_run_func = null) {
   self.$store.dispatch(...params).then((data = {}) => {
     always_run_func && always_run_func()
-    if (!data.code)
-      alert('发生错误，请稍后再试')
+    // if (!data.code)
+    //   alert('发生错误，请稍后再试')
     callback(data)
   }).catch(err => {
     console.log(err)
