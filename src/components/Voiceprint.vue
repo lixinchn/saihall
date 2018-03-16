@@ -44,13 +44,13 @@ export default {
       WeiXin.init(this, dispatch)
     },
     getUserInfo() {
-      const data = {
-        code: this.getCode()
-      }
-      let openId = WeiXin.getOpenId()
-      if (openId)
-        data.openid = openId
+      let code = this.getCode()
+      
       if (code) {
+        const data = {code: code}
+        let openId = WeiXin.getOpenId()
+        if (openId)
+          data.openid = openId
         dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
           alert(JSON.stringify(response))
         })
