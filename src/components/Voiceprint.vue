@@ -58,7 +58,6 @@ export default {
           }
 
           // 存一下openId
-          alert(response.data.openid)
           WeiXin.setOpenId(response.data.openid)
         })
       }

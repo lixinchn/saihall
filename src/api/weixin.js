@@ -6,7 +6,6 @@ export function API_WEIXIN_GetJSAPITicket() {
 }
 
 export function API_WEIXIN_Translate(data) {
-  alert('translate')
   return fetch_wrapper('weixin/translate', data)
 }
 

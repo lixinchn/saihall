@@ -19,7 +19,6 @@ function callback_base(resolve, reject) {
 export function module_base_func(api_func, callback_func = callback_base) {
   return ({commit, state}, data) => {
     return new Promise((resolve, reject) => {
-      alert(JSON.stringify(data))
       const callback = callback_func(resolve, reject, commit, data)
       api_func ? api_func(data).then(callback).catch(error => {reject(error)}) : callback()
     })
