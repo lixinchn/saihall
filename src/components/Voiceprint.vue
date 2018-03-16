@@ -51,7 +51,6 @@ export default {
         let openId = WeiXin.getOpenId()
         if (openId)
           data.openid = openId
-        alert(JSON.stringify(data))
         dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
           alert(JSON.stringify(response))
         })

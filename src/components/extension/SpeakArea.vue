@@ -41,6 +41,7 @@ export default {
       for (let i = 1; i <= 36; ++i) {
         let img = document.createElement('img')
         img.src = `/static/img/voiceprint/microphone/microphone (${i}).png`
+        img.style.display = 'none'
         document.body.appendChild(img)
       }
     },
