@@ -66,6 +66,7 @@ export default {
     margin: 0 auto;
     user-select: none;
     -webkit-touch-callout: none;
+    background-size: 100% 100%;
 
     .microphone {
       background: url(/static/img/voiceprint/speak.png) no-repeat;
@@ -92,42 +93,42 @@ export default {
 
 <style>
 @-webkit-keyframes p8{
-  0% {background: url('/static/img/voiceprint/microphone/microphone (1).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  2.77% {background: url('/static/img/voiceprint/microphone/microphone (2).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  5.54% {background: url('/static/img/voiceprint/microphone/microphone (3).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  8.31% {background: url('/static/img/voiceprint/microphone/microphone (4).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  11.08% {background: url('/static/img/voiceprint/microphone/microphone (5).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  13.85% {background: url('/static/img/voiceprint/microphone/microphone (6).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  16.62% {background: url('/static/img/voiceprint/microphone/microphone (7).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  19.39% {background: url('/static/img/voiceprint/microphone/microphone (8).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  22.16% {background: url('/static/img/voiceprint/microphone/microphone (9).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  24.93% {background: url('/static/img/voiceprint/microphone/microphone (10).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  27.70% {background: url('/static/img/voiceprint/microphone/microphone (11).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  30.47% {background: url('/static/img/voiceprint/microphone/microphone (12).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  33.24% {background: url('/static/img/voiceprint/microphone/microphone (13).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  36.31% {background: url('/static/img/voiceprint/microphone/microphone (14).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  38.78% {background: url('/static/img/voiceprint/microphone/microphone (15).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  41.55% {background: url('/static/img/voiceprint/microphone/microphone (16).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  44.32% {background: url('/static/img/voiceprint/microphone/microphone (17).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  47.09% {background: url('/static/img/voiceprint/microphone/microphone (18).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  49.86% {background: url('/static/img/voiceprint/microphone/microphone (19).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  52.63% {background: url('/static/img/voiceprint/microphone/microphone (20).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  55.4% {background: url('/static/img/voiceprint/microphone/microphone (21).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  58.17% {background: url('/static/img/voiceprint/microphone/microphone (22).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  60.94% {background: url('/static/img/voiceprint/microphone/microphone (23).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  63.71% {background: url('/static/img/voiceprint/microphone/microphone (24).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  66.48% {background: url('/static/img/voiceprint/microphone/microphone (25).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  69.25% {background: url('/static/img/voiceprint/microphone/microphone (26).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  72.02% {background: url('/static/img/voiceprint/microphone/microphone (27).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  74.97% {background: url('/static/img/voiceprint/microphone/microphone (28).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  77.56% {background: url('/static/img/voiceprint/microphone/microphone (29).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  80.33% {background: url('/static/img/voiceprint/microphone/microphone (30).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  83.10% {background: url('/static/img/voiceprint/microphone/microphone (31).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  85.87% {background: url('/static/img/voiceprint/microphone/microphone (32).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  88.64% {background: url('/static/img/voiceprint/microphone/microphone (33).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  91.41% {background: url('/static/img/voiceprint/microphone/microphone (34).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  94.18% {background: url('/static/img/voiceprint/microphone/microphone (35).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
-  100% {background: url('/static/img/voiceprint/microphone/microphone (36).png') no-repeat; background-size: 100% 100%; background-attachment: scroll;}
+  0% {background: url('/static/img/voiceprint/microphone/microphone (1).png') no-repeat; background-size: 100% 100%;}
+  2.77% {background: url('/static/img/voiceprint/microphone/microphone (2).png') no-repeat; background-size: 100% 100%;}
+  5.54% {background: url('/static/img/voiceprint/microphone/microphone (3).png') no-repeat; background-size: 100% 100%;}
+  8.31% {background: url('/static/img/voiceprint/microphone/microphone (4).png') no-repeat; background-size: 100% 100%;}
+  11.08% {background: url('/static/img/voiceprint/microphone/microphone (5).png') no-repeat; background-size: 100% 100%;}
+  13.85% {background: url('/static/img/voiceprint/microphone/microphone (6).png') no-repeat; background-size: 100% 100%;}
+  16.62% {background: url('/static/img/voiceprint/microphone/microphone (7).png') no-repeat; background-size: 100% 100%;}
+  19.39% {background: url('/static/img/voiceprint/microphone/microphone (8).png') no-repeat; background-size: 100% 100%;}
+  22.16% {background: url('/static/img/voiceprint/microphone/microphone (9).png') no-repeat; background-size: 100% 100%;}
+  24.93% {background: url('/static/img/voiceprint/microphone/microphone (10).png') no-repeat; background-size: 100% 100%;}
+  27.70% {background: url('/static/img/voiceprint/microphone/microphone (11).png') no-repeat; background-size: 100% 100%;}
+  30.47% {background: url('/static/img/voiceprint/microphone/microphone (12).png') no-repeat; background-size: 100% 100%;}
+  33.24% {background: url('/static/img/voiceprint/microphone/microphone (13).png') no-repeat; background-size: 100% 100%;}
+  36.31% {background: url('/static/img/voiceprint/microphone/microphone (14).png') no-repeat; background-size: 100% 100%;}
+  38.78% {background: url('/static/img/voiceprint/microphone/microphone (15).png') no-repeat; background-size: 100% 100%;}
+  41.55% {background: url('/static/img/voiceprint/microphone/microphone (16).png') no-repeat; background-size: 100% 100%;}
+  44.32% {background: url('/static/img/voiceprint/microphone/microphone (17).png') no-repeat; background-size: 100% 100%;}
+  47.09% {background: url('/static/img/voiceprint/microphone/microphone (18).png') no-repeat; background-size: 100% 100%;}
+  49.86% {background: url('/static/img/voiceprint/microphone/microphone (19).png') no-repeat; background-size: 100% 100%;}
+  52.63% {background: url('/static/img/voiceprint/microphone/microphone (20).png') no-repeat; background-size: 100% 100%;}
+  55.4% {background: url('/static/img/voiceprint/microphone/microphone (21).png') no-repeat; background-size: 100% 100%;}
+  58.17% {background: url('/static/img/voiceprint/microphone/microphone (22).png') no-repeat; background-size: 100% 100%;}
+  60.94% {background: url('/static/img/voiceprint/microphone/microphone (23).png') no-repeat; background-size: 100% 100%;}
+  63.71% {background: url('/static/img/voiceprint/microphone/microphone (24).png') no-repeat; background-size: 100% 100%;}
+  66.48% {background: url('/static/img/voiceprint/microphone/microphone (25).png') no-repeat; background-size: 100% 100%;}
+  69.25% {background: url('/static/img/voiceprint/microphone/microphone (26).png') no-repeat; background-size: 100% 100%;}
+  72.02% {background: url('/static/img/voiceprint/microphone/microphone (27).png') no-repeat; background-size: 100% 100%;}
+  74.97% {background: url('/static/img/voiceprint/microphone/microphone (28).png') no-repeat; background-size: 100% 100%;}
+  77.56% {background: url('/static/img/voiceprint/microphone/microphone (29).png') no-repeat; background-size: 100% 100%;}
+  80.33% {background: url('/static/img/voiceprint/microphone/microphone (30).png') no-repeat; background-size: 100% 100%;}
+  83.10% {background: url('/static/img/voiceprint/microphone/microphone (31).png') no-repeat; background-size: 100% 100%;}
+  85.87% {background: url('/static/img/voiceprint/microphone/microphone (32).png') no-repeat; background-size: 100% 100%;}
+  88.64% {background: url('/static/img/voiceprint/microphone/microphone (33).png') no-repeat; background-size: 100% 100%;}
+  91.41% {background: url('/static/img/voiceprint/microphone/microphone (34).png') no-repeat; background-size: 100% 100%;}
+  94.18% {background: url('/static/img/voiceprint/microphone/microphone (35).png') no-repeat; background-size: 100% 100%;}
+  100% {background: url('/static/img/voiceprint/microphone/microphone (36).png') no-repeat; background-size: 100% 100%;}
 }
 
 .wave {
