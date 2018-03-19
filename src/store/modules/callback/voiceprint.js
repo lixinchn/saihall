@@ -5,5 +5,10 @@ export const callback_func = {
   VOICEPRINT_SetName: callback_wrapper((callback_args, response) => {
     callback_args.commit('SET_NAME', callback_args.data)
     callback_args.resolve()
+  }),
+
+  VOICEPRINT_SetQuestion: callback_wrapper((callback_args, response) => {
+    callback_args.commit('SET_QUESTION', callback_args.data)
+    callback_args.resolve()
   })
 }

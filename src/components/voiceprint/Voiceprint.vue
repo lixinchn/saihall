@@ -31,13 +31,14 @@ export default {
     return {
       date: this.$route.query.date || translateTimestampGetDatetime(Date.now()),
       VoiceprintData: data,
-      answer: '您好，我叫汪仔，是搜狗的智能机器人。欢迎您莅临我们的展厅，体验搜狗黑科技',
+      answer: '',
     }
   },
   created() {
     document.title = '搜狗体验厅邀请函'
     this.weixinInit()
     this.getUserInfo()
+    this.talk()
   },
   methods: {
     weixinInit() {
@@ -64,6 +65,19 @@ export default {
       let url = new URL(location.href)
       return url.searchParams.get('code')
     },
+    talk() {
+      const data = {}
+      let openId = WeiXin.getOpenId()
+      if (openId)
+        data.openId = openId
+      dispatch(this, ['WEIXIN_Translate', data], (response) => {
+        const data = {
+          firstLine: response.wzQuesFir,
+          secondLine: response.wzQuesSed,
+        }
+        dispatch(this, ['VOICEPRINT_SetQuestion', data], (response) => {})
+      })
+    }
   },
 }
 </script>

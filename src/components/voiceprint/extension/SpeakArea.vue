@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import WeiXin from '../../../utils/weixin'
 import {dispatch} from '../../../utils/dispatch'
 export default {
@@ -22,6 +23,7 @@ export default {
   },
   created() {
     this.downloadMicrophoneWaveImg()
+    console.log(this.voiceprintQuestion)
   },
   methods: {
     onRecordBegin() {
@@ -33,7 +35,8 @@ export default {
       wx.stopRecord({
         success: (res) => {
           let localId = res.localId
-          WeiXin.uploadVoice(localId, this, dispatch)
+          alert(JSON.stringify(this.voiceprintQuestion))
+          WeiXin.uploadVoice(localId, this, dispatch, this.voiceprintQuestion, WeiXin.getOpenId())
         }
       })
     },
@@ -45,6 +48,12 @@ export default {
         document.body.appendChild(img)
       }
     },
+  },
+
+  computed: {
+    ...mapGetters([
+      'voiceprintQuestion'
+    ])
   }
 }
 </script>
