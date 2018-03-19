@@ -35,7 +35,6 @@ export default {
       wx.stopRecord({
         success: (res) => {
           let localId = res.localId
-          alert(JSON.stringify(this.voiceprintQuestion))
           WeiXin.uploadVoice(localId, this, dispatch, this.voiceprintQuestion, WeiXin.getOpenId())
         }
       })

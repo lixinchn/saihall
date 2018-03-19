@@ -51,7 +51,7 @@ export default {
       isShowProgressTips: 1,// 默认为1，显示进度提示
       success: (res) => {
         var serverId = res.serverId // 返回音频的服务器端ID
-        this.noticeServerId(serverId, self, dispatch, voiceprintQuestion)
+        this.noticeServerId(serverId, self, dispatch, voiceprintQuestion, openId)
       }
     })
   },
