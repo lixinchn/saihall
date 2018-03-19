@@ -46,12 +46,10 @@ export default {
   },
 
   uploadVoice(localId, self, dispatch, voiceprintQuestion, openId) {
-    alert('upload')
     wx.uploadVoice({
       localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
       isShowProgressTips: 1,// 默认为1，显示进度提示
       success: (res) => {
-        alert('upload succ')
         var serverId = res.serverId // 返回音频的服务器端ID
         this.noticeServerId(serverId, self, dispatch, voiceprintQuestion, openId)
       }
@@ -59,7 +57,6 @@ export default {
   },
 
   noticeServerId(serverId, self, dispatch, voiceprintQuestion, openId) {
-        alert('notice server id')
     const data = {
       serverId: serverId,
       openId: openId,
