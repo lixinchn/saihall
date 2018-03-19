@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import {translateTimestampGetDatetime} from '../utils/moment'
-import data from '../utils/voice_print_data'
+import {translateTimestampGetDatetime} from '../../utils/moment'
+import data from '../../utils/voice_print_data'
 import LeftTalkingBubble from './extension/LeftTalkingBubble'
 import RightTalkingBubble from './extension/RightTalkingBubble'
 import SpeakArea from './extension/SpeakArea'
-import {dispatch} from '../utils/dispatch'
-import WeiXin from '../utils/weixin'
+import {dispatch} from '../../utils/dispatch'
+import WeiXin from '../../utils/weixin'
 export default {
   name: 'Voiceprint',
   components: {LeftTalkingBubble, SpeakArea, RightTalkingBubble},
@@ -44,23 +44,21 @@ export default {
       WeiXin.init(this, dispatch)
     },
     getUserInfo() {
-      let code = this.getCode()
-      
-      if (code) {
-        const data = {code: code}
-        let openId = WeiXin.getOpenId()
-        if (openId)
-          data.openid = openId
-        dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-          if (!response.data.code) {
-            alert('没有用户信息，准备跳转')
-            return
-          }
+      const data = {code: this.getCode()}
+      let openId = WeiXin.getOpenId()
+      if (openId)
+        data.openid = openId
+      dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
+        console.log(response)
+        if (!response.data.code) {
+          console.log('没有用户信息，准备跳转')
+          // WeiXin.redirectToGetcode()
+          return
+        }
 
-          // 存一下openId
-          WeiXin.setOpenId(response.data.openid)
-        })
-      }
+        // 存一下openId
+        WeiXin.setOpenId(response.data.openid)
+      })
     },
     getCode() {
       let url = new URL(location.href)

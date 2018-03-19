@@ -27,9 +27,9 @@ export const request_params = {
 
 export const response_params = {
   response: response => {
-    if (response.data.code === 0) {
-      return Promise.reject('内部错误')
-    }
+    // if (response.data.code === 0) {
+    //   return Promise.reject('内部错误')
+    // }
     return response
   },
 

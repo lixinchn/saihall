@@ -7,6 +7,5 @@ function do_fetch(api_name, data, method) {
 }
 
 export function fetch_wrapper(api_name, data = undefined, method = 'post') {
-  console.log(api_name)
   return do_fetch(api_name, data, method)
 }

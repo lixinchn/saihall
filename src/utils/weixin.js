@@ -99,5 +99,10 @@ export default {
 
   setOpenId(openId) {
     localStorage.setItem('openId', openId)
-  }
+  },
+
+  redirectToGetcode() {
+    const url = encodeURIComponent(location.href)
+    location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe15979ce3adafcd9&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
+  },
 }
