@@ -91,7 +91,11 @@ export default {
       })
     },
     onTouchMove(e) {
-      e.preventDefault()
+      if (window.scrollY <= 0)
+        e.preventDefault()
+      
+      if (!this.$refs.top.contains(e.target))
+        e.preventDefault()
     },
   },
   computed: {
