@@ -91,9 +91,9 @@ export default {
       })
     },
     onTouchMove(e) {
-      if (window.scrollY <= 0)
+      if (this.$refs.top.scrollTop <= 0)
         e.preventDefault()
-      
+
       if (!this.$refs.top.contains(e.target))
         e.preventDefault()
     },
