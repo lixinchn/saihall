@@ -100,7 +100,9 @@ export default {
   watch: {
     onVoiceprintQuestion(voiceprintQuestion) {
       this.voiceprintData.push(voiceprintQuestion)
-      this.$refs.top.scrollTo(0, this.$refs.top.scrollHeight)
+      setTimeout(() => {
+        this.$refs.top.scrollTo(0, this.$refs.top.scrollHeight)
+      }, 200)
     },
   },
 }
