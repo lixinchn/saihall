@@ -74,10 +74,6 @@ export default {
       if (openId)
         data.openId = openId
       dispatch(this, ['WEIXIN_Translate', data], (response) => {
-        if (response.translateTxt) {
-          dispatch(this, ['VOICEPRINT_SetQuestion', {answer: response.translateTxt}], (response) => {})
-        }
-
         const data = {
           firstLine: response.wzQuesFir,
           secondLine: response.wzQuesSed,
