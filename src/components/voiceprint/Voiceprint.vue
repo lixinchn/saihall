@@ -1,5 +1,5 @@
 <template>
-  <div class="voiceprint">
+  <div class="voiceprint" @touchmove="onTouchMove">
     <div class="top-area" ref="top">
       <div class="head">
         <img src="/static/img/voiceprint/head.png">
@@ -89,6 +89,9 @@ export default {
         data.openId = openId
       dispatch(this, ['WEIXIN_Translate', data], (response) => {
       })
+    },
+    onTouchMove(e) {
+      e.preventDefault()
     },
   },
   computed: {
