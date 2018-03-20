@@ -25,9 +25,10 @@ export default {
     this.downloadMicrophoneWaveImg()
   },
   methods: {
-    onRecordBegin() {
+    onRecordBegin(e) {
       this.recording = true
       wx.startRecord()
+      e.preventDefault()
     },
     onRecordEnd() {
       this.recording = false
