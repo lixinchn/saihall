@@ -60,6 +60,7 @@ export default {
     width: 3em;
     float: right;
     vertical-align: top;
+    border-radius: 50%;
   }
   .bubble {
     max-width: calc(100% - 5em);
