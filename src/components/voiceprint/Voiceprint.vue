@@ -11,7 +11,7 @@
                              :hint="data.hint"
                              v-if="data.firstLine"
                              ></left-talking-bubble>
-        <right-talking-bubble :answer="answer" v-if="data.jjj"></right-talking-bubble>
+        <right-talking-bubble :answer="data.answer" v-if="data.answer"></right-talking-bubble>
       </div>
     </div>
     <div class="tail-area">
@@ -74,9 +74,14 @@ export default {
       if (openId)
         data.openId = openId
       dispatch(this, ['WEIXIN_Translate', data], (response) => {
+        if (response.translateTxt) {
+          dispatch(this, ['VOICEPRINT_SetQuestion', {answer: response.translateTxt}], (response) => {})
+        }
+
         const data = {
           firstLine: response.wzQuesFir,
           secondLine: response.wzQuesSed,
+          hint: response.wzQuesThi,
         }
         dispatch(this, ['VOICEPRINT_SetQuestion', data], (response) => {})
       })
