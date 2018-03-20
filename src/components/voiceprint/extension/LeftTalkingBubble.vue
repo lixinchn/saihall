@@ -49,6 +49,7 @@ export default {
 		width: 3em;
 		float: left;
 		vertical-align: top;
+    border-radius: 50%;
 	}
 	.bubble {
 		width: calc(100% - 5em);

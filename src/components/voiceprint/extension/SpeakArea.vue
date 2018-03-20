@@ -23,7 +23,6 @@ export default {
   },
   created() {
     this.downloadMicrophoneWaveImg()
-    console.log(this.voiceprintQuestion)
   },
   methods: {
     onRecordBegin() {
@@ -53,7 +52,7 @@ export default {
     ...mapGetters([
       'voiceprintQuestion'
     ])
-  }
+  },
 }
 </script>
 

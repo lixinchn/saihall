@@ -5,10 +5,14 @@
         <img src="/static/img/voiceprint/head.png">
         <p>{{date}}<span style="margin-left: 1em;">搜狐网络大厦</span></p>
       </div>
-      <left-talking-bubble :firstLine="VoiceprintData.init.firstLine"
-                           :secondLine="VoiceprintData.init.secondLine"
-                           :hint="VoiceprintData.init.hint"></left-talking-bubble>
-      <right-talking-bubble :answer="answer"></right-talking-bubble>
+      <div v-for="(data, index) in voiceprintData">
+        <left-talking-bubble :firstLine="data.firstLine"
+                             :secondLine="data.secondLine"
+                             :hint="data.hint"
+                             v-if="data.firstLine"
+                             ></left-talking-bubble>
+        <right-talking-bubble :answer="answer" v-if="data.jjj"></right-talking-bubble>
+      </div>
     </div>
     <div class="tail-area">
       <speak-area></speak-area>
@@ -17,8 +21,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import {translateTimestampGetDatetime} from '../../utils/moment'
-import data from '../../utils/voice_print_data'
 import LeftTalkingBubble from './extension/LeftTalkingBubble'
 import RightTalkingBubble from './extension/RightTalkingBubble'
 import SpeakArea from './extension/SpeakArea'
@@ -30,7 +34,7 @@ export default {
   data () {
     return {
       date: this.$route.query.date || translateTimestampGetDatetime(Date.now()),
-      VoiceprintData: data,
+      voiceprintData: [],
       answer: '',
     }
   },
@@ -50,10 +54,9 @@ export default {
       if (openId)
         data.openid = openId
       dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-        console.log(response)
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
-          WeiXin.redirectToGetcode()
+          // WeiXin.redirectToGetcode()
           return
         }
 
@@ -77,7 +80,27 @@ export default {
         }
         dispatch(this, ['VOICEPRINT_SetQuestion', data], (response) => {})
       })
-    }
+    },
+    getQuestion() {
+      const data = {}
+      let openId = WeiXin.getOpenId()
+      if (openId)
+        data.openId = openId
+      dispatch(this, ['WEIXIN_Translate', data], (response) => {
+      })
+    },
+  },
+  computed: {
+    ...mapGetters({
+      onVoiceprintQuestion: 'voiceprintQuestion',
+    })
+  },
+
+  watch: {
+    onVoiceprintQuestion(voiceprintQuestion) {
+      alert(JSON.stringify(voiceprintQuestion))
+      this.voiceprintData.push(voiceprintQuestion)
+    },
   },
 }
 </script>
