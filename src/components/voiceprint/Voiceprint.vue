@@ -114,6 +114,7 @@ export default {
 
     .top-area {
       height: calc(100% - 150px);
+      overflow: scroll;
       .head {
         width: 100%;
         position: relative;
