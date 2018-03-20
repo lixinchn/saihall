@@ -29,7 +29,6 @@ export default {
     })
 
     wx.ready(function(){
-      console.log('success')
       wx.onVoiceRecordEnd({
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
         complete: (res) => {
@@ -105,6 +104,7 @@ export default {
 
   redirectToGetcode() {
     const url = encodeURIComponent(location.href)
+    alert(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe15979ce3adafcd9&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe15979ce3adafcd9&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
   },
 }
