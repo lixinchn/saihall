@@ -56,7 +56,7 @@ export default {
       dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
-          // WeiXin.redirectToGetcode()
+          WeiXin.redirectToGetcode()
           return
         }
 
@@ -91,8 +91,8 @@ export default {
       })
     },
     onTouchMove(e) {
-      if (this.$refs.top.scrollTop <= 0)
-        e.preventDefault()
+      // if (this.$refs.top.scrollTop <= 0)
+      //   e.preventDefault()
 
       if (!this.$refs.top.contains(e.target))
         e.preventDefault()
