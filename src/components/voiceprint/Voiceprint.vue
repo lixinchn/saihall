@@ -1,6 +1,6 @@
 <template>
   <div class="voiceprint">
-    <div class="top-area">
+    <div class="top-area" ref="top">
       <div class="head">
         <img src="/static/img/voiceprint/head.png">
         <p>{{date}}<span style="margin-left: 1em;">搜狐网络大厦</span></p>
@@ -100,7 +100,7 @@ export default {
   watch: {
     onVoiceprintQuestion(voiceprintQuestion) {
       this.voiceprintData.push(voiceprintQuestion)
-      alert(JSON.stringify(this.voiceprintData))
+      this.$refs.top.scrollTo(0, this.$refs.top.scrollHeight)
     },
   },
 }
