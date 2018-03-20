@@ -8,7 +8,6 @@ const weixin = {
   },
   mutations: {
     SET_USER_INFO: (state, userInfo) => {
-      alert(JSON.stringify(userInfo))
       state.userInfo = userInfo
     },
   },

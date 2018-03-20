@@ -45,7 +45,6 @@ export default {
       WeiXin.init(this, dispatch)
     },
     getUserInfo() {
-      alert(location.href)
       const data = {code: this.getCode()}
       let openId = WeiXin.getOpenId()
       if (openId)

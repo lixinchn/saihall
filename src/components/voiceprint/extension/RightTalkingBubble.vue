@@ -1,6 +1,6 @@
 <template>
   <div class="container" :style="autoStyle">
-    <img src="userInfo.headimgurl" class="avatar">
+    <img :src="userInfo.headimgurl" class="avatar">
     <div class="bubble">
       {{answer}}
     </div>
