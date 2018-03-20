@@ -63,13 +63,13 @@ export default {
     }
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
       // alert(JSON.stringify(response))
+      const data = {
+        firstLine: response.wzQuesFir,
+        secondLine: response.wzQuesSed,
+        hint: response.wzQuesThi,
+      }
       if (response.translateTxt) {
         dispatch(self, ['VOICEPRINT_SetQuestion', {answer: response.translateTxt}], (response) => {
-          const data = {
-            firstLine: response.wzQuesFir,
-            secondLine: response.wzQuesSed,
-            hint: response.wzQuesThi,
-          }
           dispatch(self, ['VOICEPRINT_SetQuestion', data], (response) => {})
         })
       }
