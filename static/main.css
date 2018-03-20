@@ -40,3 +40,9 @@
 .wave {
   -webkit-animation: p8 steps(1, end) 1s infinite;
 }
+
+* {
+  -webkit-tap-highlight-color: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
