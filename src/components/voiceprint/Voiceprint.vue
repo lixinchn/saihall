@@ -53,7 +53,7 @@ export default {
         console.log(response)
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
-          // WeiXin.redirectToGetcode()
+          WeiXin.redirectToGetcode()
           return
         }
 
