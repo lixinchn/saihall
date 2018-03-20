@@ -103,8 +103,8 @@ export default {
 
   watch: {
     onVoiceprintQuestion(voiceprintQuestion) {
-      alert(JSON.stringify(voiceprintQuestion))
       this.voiceprintData.push(voiceprintQuestion)
+      alert(JSON.stringify(this.voiceprintData))
     },
   },
 }
