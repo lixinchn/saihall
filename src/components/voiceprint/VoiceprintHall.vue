@@ -1,21 +1,24 @@
 <template>
   <div class="container">
     <div class="head">
-      <img src="/static/img/voiceprint/voiceprint-hall-succ-btn.png">
-      <p>{{name}}，请读出下面短句</p>
+      <img :src="userInfo.headimgurl">
+      <p>{{userInfo.nickname}}，请读出下面短句</p>
     </div>
     <div class="poem-container">
       <div class="poem-wave"></div>
       <p class="poem-text">{{poem}}</p>
     </div>
 
-    <div :class="[{wave: recording}, 'microphone-container']">
+    <div class="microphone-container">
       <div class="microphone" @touchstart="onRecordBegin" @touchend="onRecordEnd"></div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+import WeiXin from '../../utils/weixin'
+import {dispatch} from '../../utils/dispatch'
 export default {
   name: 'VoiceprintHall',
   components: {},
@@ -23,18 +26,62 @@ export default {
     return {
       name: '',
       recording: false,
-      poem: '花近高楼伤客心，万方多难此登临',
+      poem: '',
     }
   },
   created() {
+    this.weixinInit()
+    this.getUserInfo()
+    this.getPoem()
   },
   methods: {
-    onRecordBegin() {
+    getPoem() {
+      dispatch(this, ['VOICEPRINT_GetPoem'], (response) => {
+        this.poem = response.verse
+      })
+    },
+    weixinInit() {
+      WeiXin.init(this, dispatch)
+    },
+    getUserInfo() {
+      const data = {code: this.getCode()}
+      let openId = WeiXin.getOpenId()
+      if (openId)
+        data.openid = openId
+      dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
+        if (!response.data.code) {
+          console.log('没有用户信息，准备跳转')
+          WeiXin.redirectToGetcode()
+          return
+        }
 
+        // 存一下openId
+        WeiXin.setOpenId(response.data.openid)
+      })
+    },
+    getCode() {
+      let url = new URL(location.href)
+      return url.searchParams.get('code')
+    },
+    onRecordBegin(e) {
+      this.recording = true
+      wx.startRecord()
+      e.preventDefault()
     },
     onRecordEnd() {
-
+      this.recording = false
+      wx.stopRecord({
+        success: (res) => {
+          let localId = res.localId
+          WeiXin.uploadVoiceHall(localId, this, dispatch, this.poem, WeiXin.getOpenId())
+        }
+      })
     },
+  },
+  computed: {
+    ...mapGetters([
+      'userInfo'
+    ])
   },
 }
 </script>

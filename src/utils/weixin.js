@@ -116,4 +116,26 @@ export default {
     const url = encodeURIComponent(location.href)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe15979ce3adafcd9&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
   },
+
+  uploadVoiceHall(localId, self, dispatch, poem, openId) {
+    wx.uploadVoice({
+      localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+      isShowProgressTips: 1,// 默认为1，显示进度提示
+      success: (res) => {
+        var serverId = res.serverId // 返回音频的服务器端ID
+        this.noticeServerIdHall(serverId, self, dispatch, poem, openId)
+      }
+    })
+  },
+
+  noticeServerIdHall(serverId, self, dispatch, poem, openId) {
+    const data = {
+      serverId: serverId,
+      openId: openId,
+      verse: poem
+    }
+    dispatch(self, ['VOICEPRINT_ReadVerse', data], (response) => {
+      alert(JSON.stringify(response))
+    })
+  },
 }
