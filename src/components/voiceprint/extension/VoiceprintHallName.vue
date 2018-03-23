@@ -2,7 +2,7 @@
   <div class="container">
     <wei-xin-need v-if="weiXinNeed"></wei-xin-need>
     <div class="head">
-      <img src="/static/img/voiceprint/voiceprint-hall-succ-btn.png">
+      <img :src="userInfo.headimgurl">
       <p>请输入您的名字：</p>
       <input class="name" type="text" v-model="name">
     </div>
@@ -14,13 +14,14 @@
 import WeiXinNeed from './WeiXinNeed'
 import WeiXin from '../../../utils/weixin'
 import {dispatch} from '../../../utils/dispatch'
+import {mapGetters} from 'vuex'
 export default {
   name: 'VoiceprintHallName',
   components: {WeiXinNeed},
   data () {
     return {
-      // weiXinNeed: !navigator.userAgent.includes('MicroMessenger'),
-      weiXinNeed: false,
+      weiXinNeed: !navigator.userAgent.includes('MicroMessenger'),
+      // weiXinNeed: false,
       name: '',
     }
   },
@@ -37,7 +38,7 @@ export default {
         console.log(response)
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
-          // WeiXin.redirectToGetcode()
+          WeiXin.redirectToGetcode()
           return
         }
 
@@ -51,6 +52,19 @@ export default {
         this.$router.push({path: 'voiceprinthall', query: this.$route.query})
       })
     },
+  },
+
+  computed: {
+    ...mapGetters({
+      onUserInfo: 'userInfo',
+    })
+  },
+
+  watch: {
+    onUserInfo(userInfo) {
+      alert(JSON.stringify(userInfo))
+      this.name = userInfo.nickname
+    }
   },
 }
 </script>
