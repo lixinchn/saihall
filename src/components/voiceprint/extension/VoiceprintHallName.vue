@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <wei-xin-need v-if="weiXinNeed"></wei-xin-need>
-    <div class="head">
-      <img :src="userInfo.headimgurl">
+    <div class="head" v-if="!weiXinNeed">
+      <img :src="onUserInfo.headimgurl">
       <p>请输入您的名字：</p>
       <input class="name" type="text" v-model="name">
     </div>
-    <div class="btn" @click="onNext">下一步</div>
+    <div class="btn" @click="onNext" v-if="!weiXinNeed">下一步</div>
   </div>
 </template>
 
