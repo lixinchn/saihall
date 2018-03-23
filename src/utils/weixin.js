@@ -62,7 +62,6 @@ export default {
       wzQustion: voiceprintQuestion.firstLine,
     }
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
-      // alert(JSON.stringify(response))
       const data = {
         firstLine: response.wzQuesFir,
         secondLine: response.wzQuesSed,
@@ -135,7 +134,14 @@ export default {
       verse: poem
     }
     dispatch(self, ['VOICEPRINT_ReadVerse', data], (response) => {
-      alert(JSON.stringify(response))
+      if (response.code) {
+        if (++self.succCount >= 3)
+          this.$router.push({path: 'voiceprinthallsucc', query: this.$route.query})
+        else
+          self.getPoem()
+        return
+      }
+      alert('语音有误，请重读页面中的文字')
     })
   },
 }

@@ -27,6 +27,7 @@ export default {
       name: '',
       recording: false,
       poem: '',
+      succCount: 0,
     }
   },
   created() {
