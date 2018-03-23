@@ -53,7 +53,9 @@ export default {
 
     onNext() {
       dispatch(this, ['VOICEPRINT_SetName', {name: this.name}], (response) => {
-        this.$router.push({path: 'voiceprinthall', query: this.$route.query})
+        let query = this.$route.query
+        query.name = this.name
+        this.$router.push({path: 'voiceprinthall', query: query})
       })
     },
   },
@@ -66,7 +68,6 @@ export default {
 
   watch: {
     onUserInfo(userInfo) {
-      alert(JSON.stringify(userInfo))
       this.name = userInfo.nickname
     }
   },

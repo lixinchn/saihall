@@ -2,7 +2,7 @@
   <div class="container">
     <div class="head">
       <img :src="userInfo.headimgurl">
-      <p>{{userInfo.nickname}}，请读出下面短句</p>
+      <p>{{name}}，请读出下面短句</p>
     </div>
     <div class="poem-container">
       <div class="poem-wave"></div>
@@ -34,6 +34,7 @@ export default {
     this.weixinInit()
     this.getUserInfo()
     this.getPoem()
+    this.name = this.$route.query.name
   },
   methods: {
     getPoem() {
