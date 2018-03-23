@@ -20,8 +20,8 @@ export default {
   components: {WeiXinNeed},
   data () {
     return {
-      weiXinNeed: !navigator.userAgent.includes('MicroMessenger'),
-      // weiXinNeed: false,
+      // weiXinNeed: !navigator.userAgent.includes('MicroMessenger'),
+      weiXinNeed: false,
       name: '',
     }
   },
@@ -36,7 +36,6 @@ export default {
       if (openId)
         data.openid = openId
       dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-        console.log(response)
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
           WeiXin.redirectToGetcode()
@@ -46,6 +45,10 @@ export default {
         // 存一下openId
         WeiXin.setOpenId(response.data.openid)
       })
+    },
+    getCode() {
+      let url = new URL(location.href)
+      return url.searchParams.get('code')
     },
 
     onNext() {
