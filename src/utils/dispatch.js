@@ -14,8 +14,6 @@ export function dispatch(self, params, callback, always_run_func = null) {
     callback(data)
   }).catch(err => {
     console.log(err)
-    alert(1)
-    alert(JSON.stringify(err))
     alert('发生错误，请稍后再试')
     always_run_func && always_run_func()
   })

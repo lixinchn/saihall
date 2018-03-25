@@ -156,11 +156,9 @@ export default {
       verse: poem
     }
     dispatch(self, ['VOICEPRINT_ReadVerse', data], (response) => {
-      alert(JSON.stringify(response))
       if (response.code) {
-        alert(self.succCount)
         if (++self.succCount >= 3)
-          this.$router.push({path: 'voiceprinthallsucc', query: this.$route.query})
+          self.$router.push({path: 'voiceprinthallsucc', query: self.$route.query})
         else
           self.getPoem()
         return
