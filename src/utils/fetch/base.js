@@ -35,6 +35,8 @@ export const response_params = {
 
   error: error => {
     console.log('err' + error) // for debug
+    alert(2)
+    alert(JSON.stringify(error))
     alert('发生错误，请稍后再试')
     return Promise.reject(error)
   }
