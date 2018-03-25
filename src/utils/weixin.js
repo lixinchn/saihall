@@ -157,7 +157,6 @@ export default {
     }
     dispatch(self, ['VOICEPRINT_ReadVerse', data], (response) => {
       if (response.code) {
-        alert(self.succCount)
         if (++self.succCount >= 3)
           this.$router.push({path: 'voiceprinthallsucc', query: this.$route.query})
         else
