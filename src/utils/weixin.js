@@ -18,6 +18,28 @@ export default {
     })
   },
 
+  getUserInfo(self, dispatch) {
+    const data = {code: this.getCode()}
+    let openId = this.getOpenId()
+    if (openId)
+      data.openid = openId
+    dispatch(self, ['WEIXIN_GetUserInfo', data], (response) => {
+      if (!response.data.code) {
+        console.log('没有用户信息，准备跳转')
+        this.redirectToGetcode()
+        return
+      }
+
+      // 存一下openId
+      this.setOpenId(response.data.openid)
+    })
+  },
+
+  getCode() {
+    let url = new URL(location.href)
+    return url.searchParams.get('code')
+  },
+
   config(noncestr, timestamp, url, ticket, sig, self, dispatch) {
     wx.config({
       debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
