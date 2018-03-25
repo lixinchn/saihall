@@ -49,24 +49,7 @@ export default {
       WeiXin.init(this, dispatch)
     },
     getUserInfo() {
-      const data = {code: this.getCode()}
-      let openId = WeiXin.getOpenId()
-      if (openId)
-        data.openid = openId
-      dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
-        if (!response.data.code) {
-          console.log('没有用户信息，准备跳转')
-          WeiXin.redirectToGetcode()
-          return
-        }
-
-        // 存一下openId
-        WeiXin.setOpenId(response.data.openid)
-      })
-    },
-    getCode() {
-      let url = new URL(location.href)
-      return url.searchParams.get('code')
+      WeiXin.getUserInfo(this, dispatch)
     },
     talk() {
       const data = {}
