@@ -11,6 +11,7 @@
 
 <script>
 import WeiXin from '../../utils/weixin'
+import {dispatch} from '../../utils/dispatch'
 export default {
   name: 'VoiceMergeInput',
   components: {},
