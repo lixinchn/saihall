@@ -31,7 +31,6 @@ export default {
     }
   },
   created() {
-    this.weixinInit()
     this.getUserInfo()
     this.getPoem()
     this.name = this.$route.query.name
@@ -44,9 +43,6 @@ export default {
       dispatch(this, ['VOICEPRINT_GetPoem', data], (response) => {
         this.poem = response.verse
       })
-    },
-    weixinInit() {
-      WeiXin.init(this, dispatch)
     },
     getUserInfo() {
       WeiXin.getUserInfo(this, dispatch)

@@ -27,6 +27,7 @@ export default {
   },
   created() {
     document.title = '录入声纹'
+    WeiXin.init(this, dispatch)
     this.getUserInfo()
   },
   methods: {
