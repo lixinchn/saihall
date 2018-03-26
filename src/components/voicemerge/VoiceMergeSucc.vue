@@ -14,13 +14,15 @@ export default {
   components: {},
   data () {
     return {
+      count: 0,
     }
   },
   created() {
+    this.count = this.$route.query.count
   },
   methods: {
     onRecord() {
-      this.$router.push({path: 'voicemerge', query: this.$route.query})
+      this.$router.push({path: 'voicemergeinput'})
     }
   },
 }

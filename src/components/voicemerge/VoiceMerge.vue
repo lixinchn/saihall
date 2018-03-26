@@ -51,7 +51,9 @@ export default {
         peopleId: this.chosen + 1,
       }
       dispatch(this, ['VOICEMERGE_SaveVoice', data], (response) => {
-        alert(JSON.stringify(response))
+        if (response.code) {
+          this.$router.push({path: 'voicemergesucc', query: {count: response.count}})
+        }
       })
     },
     onChoose(index) {
