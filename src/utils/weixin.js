@@ -18,22 +18,6 @@ export default {
     })
   },
 
-  shareConfig() {
-    wx.onMenuShareAppMessage({
-      title: '搜狗体验厅', // 分享标题
-      desc: '搜狗体验厅期待您的光临', // 分享描述
-      link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-      imgUrl: '', // 分享图标
-      success: function () {
-        alert('分享成功')
-        // 用户确认分享后执行的回调函数
-      },
-      cancel: function () {
-        // 用户取消分享后执行的回调函数
-      }
-    })
-  },
-
   getUserInfo(self, dispatch) {
     const data = {code: this.getCode()}
     let openId = this.getOpenId()
@@ -67,9 +51,19 @@ export default {
     })
 
     wx.ready(function(){
-      alert(1)
-      this.shareConfig()
-      alert(2)
+      wx.onMenuShareAppMessage({
+        title: '搜狗体验厅', // 分享标题
+        desc: '搜狗体验厅期待您的光临', // 分享描述
+        link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: '', // 分享图标
+        success: function () {
+          alert('分享成功')
+          // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      })
 
       wx.onVoiceRecordEnd({
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
