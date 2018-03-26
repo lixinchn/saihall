@@ -16,8 +16,6 @@ export default {
 
       this.config(noncestr, timestamp, url, ticket, sig, self, dispatch)
     })
-
-    this.shareConfig()
   },
 
   shareConfig() {
@@ -69,6 +67,8 @@ export default {
     })
 
     wx.ready(function(){
+      this.shareConfig()
+
       wx.onVoiceRecordEnd({
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
         complete: (res) => {
