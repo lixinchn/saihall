@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import WeiXin from '../../utils/weixin'
 export default {
   name: 'VoiceMergeInput',
   components: {},
@@ -20,6 +21,8 @@ export default {
   },
   created() {
     document.title = '语音合成'
+    WeiXin.init(this, dispatch)
+    WeiXin.getUserInfo(this, dispatch)
   },
   methods: {
     onNext() {
