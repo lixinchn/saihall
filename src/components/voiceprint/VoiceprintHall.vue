@@ -38,7 +38,10 @@ export default {
   },
   methods: {
     getPoem() {
-      dispatch(this, ['VOICEPRINT_GetPoem'], (response) => {
+      const data = {
+        verse: this.poem,
+      }
+      dispatch(this, ['VOICEPRINT_GetPoem', data], (response) => {
         this.poem = response.verse
       })
     },

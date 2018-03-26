@@ -16,6 +16,23 @@ export default {
 
       this.config(noncestr, timestamp, url, ticket, sig, self, dispatch)
     })
+
+    this.shareConfig()
+  },
+
+  shareConfig() {
+    wx.onMenuShareAppMessage({
+      title: '搜狗体验厅', // 分享标题
+      desc: '搜狗体验厅期待您的光临', // 分享描述
+      link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: '', // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    })
   },
 
   getUserInfo(self, dispatch) {
