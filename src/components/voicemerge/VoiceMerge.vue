@@ -52,7 +52,7 @@ export default {
       }
       dispatch(this, ['VOICEMERGE_SaveVoice', data], (response) => {
         if (response.code) {
-          this.$router.push({path: 'voicemergesucc', query: {count: response.count}})
+          this.$router.push({path: 'voicemergesucc', query: {count: response.queueCount}})
         }
       })
     },
