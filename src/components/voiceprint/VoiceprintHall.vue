@@ -5,7 +5,7 @@
       <p>{{name}}，请读出下面短句</p>
     </div>
     <div class="poem-container">
-      <div class="poem-wave"></div>
+      <div :class="[{'wave-hall': recording}, 'poem-wave']"></div>
       <p class="poem-text">{{poem}}</p>
     </div>
 
@@ -33,6 +33,7 @@ export default {
   created() {
     this.getUserInfo()
     this.getPoem()
+    this.downloadMicrophoneWaveImg()
     this.name = this.$route.query.name
   },
   methods: {
@@ -46,6 +47,14 @@ export default {
     },
     getUserInfo() {
       WeiXin.getUserInfo(this, dispatch)
+    },
+    downloadMicrophoneWaveImg() {
+      for (let i = 1; i <= 138; ++i) {
+        let img = document.createElement('img')
+        img.src = `/static/img/voiceprint/wave/wave (${i}).png`
+        img.style.display = 'none'
+        document.body.appendChild(img)
+      }
     },
     onRecordBegin(e) {
       this.recording = true
