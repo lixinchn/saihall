@@ -59,9 +59,7 @@ export default {
     onRecordBegin(e) {
       wx.startRecord()
       e.preventDefault()
-      setTimeout(() => {
-        this.recording = true
-      }, 500)
+      this.recording = true
     },
     onRecordEnd() {
       this.recording = false
