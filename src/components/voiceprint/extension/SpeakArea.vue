@@ -26,9 +26,9 @@ export default {
   },
   methods: {
     onRecordBegin(e) {
-      this.recording = true
       wx.startRecord()
       e.preventDefault()
+      this.recording = true
     },
     onRecordEnd() {
       this.recording = false
