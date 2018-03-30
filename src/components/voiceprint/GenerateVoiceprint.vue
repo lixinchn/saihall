@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>请输入邀请函的日期</h1>
+    <p>请务必保证手机已经联网</p>
     <input type="date" v-on:keyup.13="onGen" v-model="vDate">
     <button @click="onGen" style="display: block; margin: 10px auto;">生成邀请函</button>
     <h1 v-show="show">可以点击右上角来进行分享了</h1>
