@@ -1,7 +1,7 @@
 import sha1 from 'sha1'
 
 export default {
-  init(self, dispatch) {
+  init(self, dispatch, shareUrl = undefined) {
     this.getJSAPITicket(self, dispatch).then((ticket) => {
       let noncestr = this.makeNoncestr()
       let timestamp = Date.now().toString()
@@ -14,7 +14,7 @@ export default {
         url: url,
       })
 
-      this.config(noncestr, timestamp, url, ticket, sig, self, dispatch)
+      this.config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl)
     })
   },
 
@@ -40,7 +40,7 @@ export default {
     return url.searchParams.get('code')
   },
 
-  config(noncestr, timestamp, url, ticket, sig, self, dispatch) {
+  config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl) {
     wx.config({
       debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: 'wxe15979ce3adafcd9', // 必填，企业号的唯一标识，此处填写企业号corpid
@@ -54,7 +54,7 @@ export default {
       wx.onMenuShareAppMessage({
         title: '搜狗体验厅', // 分享标题
         desc: '搜狗体验厅期待您的光临', // 分享描述
-        link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: shareUrl || location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: '', // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
@@ -66,7 +66,7 @@ export default {
 
       wx.onMenuShareTimeline({
         title: '搜狗体验厅', // 分享标题
-        link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        link: shareUrl || location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
         imgUrl: '', // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
