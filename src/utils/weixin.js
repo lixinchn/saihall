@@ -103,7 +103,7 @@ export default {
     const data = {
       serverId: serverId,
       openId: openId,
-      wzQustion: voiceprintQuestion.firstLine,
+      wzQustion: voiceprintQuestion.secondLine,
     }
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
       if (response.translateTxt) {
