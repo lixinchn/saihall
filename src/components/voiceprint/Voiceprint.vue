@@ -92,7 +92,7 @@ export default {
           if (--scrollHeight <= 0)
             clearInterval(intervalId)
 
-          this.$refs.top.scrollTo(0, 1)
+          this.$refs.top.scrollBy(0, 1)
         }, 16)
       }, 200)
     },
