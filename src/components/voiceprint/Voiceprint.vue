@@ -91,7 +91,7 @@ export default {
           if (this.$refs.top.scrollTop + this.$refs.top.clientHeight === this.$refs.top.scrollHeight)
             clearInterval(intervalId)
 
-          this.$refs.top.scrollBy(0, 1)
+          this.$refs.top.scrollBy(0, 3)
         }, 16)
       }, 200)
     },
