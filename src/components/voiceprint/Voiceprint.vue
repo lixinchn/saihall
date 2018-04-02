@@ -9,7 +9,7 @@
         <left-talking-bubble :firstLine="data.firstLine"
                              :secondLine="data.secondLine"
                              :hint="data.hint"
-                             v-if="data.firstLine"
+                             v-if="data.firstLine || data.secondLine"
                              ></left-talking-bubble>
         <right-talking-bubble :answer="data.answer" v-if="data.answer"></right-talking-bubble>
       </div>
@@ -85,7 +85,6 @@ export default {
 
   watch: {
     onVoiceprintQuestion(voiceprintQuestion) {
-      alert(JSON.stringify(voiceprintQuestion))
       this.voiceprintData.push(voiceprintQuestion)
       setTimeout(() => {
         this.$refs.top.scrollTo(0, this.$refs.top.scrollHeight)
