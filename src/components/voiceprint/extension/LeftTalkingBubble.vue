@@ -41,6 +41,7 @@ export default {
   }
 }
 .container {
+  margin-bottom: 10px;
 	padding: 0 1.4em 0 1.3em;
 	text-align: left;
 	overflow: hidden;
