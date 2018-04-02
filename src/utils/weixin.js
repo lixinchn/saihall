@@ -88,22 +88,22 @@ export default {
     })
   },
 
-  uploadVoice(localId, self, dispatch, voiceprintQuestion, openId) {
+  uploadVoice(localId, self, dispatch, sendQuestion, openId) {
     wx.uploadVoice({
       localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
       isShowProgressTips: 1,// 默认为1，显示进度提示
       success: (res) => {
         var serverId = res.serverId // 返回音频的服务器端ID
-        this.noticeServerId(serverId, self, dispatch, voiceprintQuestion, openId)
+        this.noticeServerId(serverId, self, dispatch, sendQuestion, openId)
       }
     })
   },
 
-  noticeServerId(serverId, self, dispatch, voiceprintQuestion, openId) {
+  noticeServerId(serverId, self, dispatch, sendQuestion, openId) {
     const data = {
       serverId: serverId,
       openId: openId,
-      wzQustion: voiceprintQuestion.secondLine,
+      wzQustion: sendQuestion,
     }
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
       if (response.translateTxt) {

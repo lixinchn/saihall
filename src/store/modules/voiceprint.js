@@ -5,6 +5,7 @@ import {callback_func} from './callback/voiceprint'
 const voiceprint = {
   state: {
     voiceprintQuestion: {},
+    sendQuestion: '',
   },
   mutations: {
     SET_NAME: (state, data) => {
@@ -12,6 +13,8 @@ const voiceprint = {
     },
     SET_QUESTION: (state, data) => {
       state.voiceprintQuestion = data
+      if (data.firstLine)
+        state.sendQuestion = data.firstLine
     }
   },
   actions: {

@@ -35,7 +35,7 @@ export default {
       wx.stopRecord({
         success: (res) => {
           let localId = res.localId
-          WeiXin.uploadVoice(localId, this, dispatch, this.voiceprintQuestion, WeiXin.getOpenId())
+          WeiXin.uploadVoice(localId, this, dispatch, this.sendQuestion, WeiXin.getOpenId())
         }
       })
     },
@@ -51,7 +51,8 @@ export default {
 
   computed: {
     ...mapGetters([
-      'voiceprintQuestion'
+      'voiceprintQuestion',
+      'sendQuestion',
     ])
   },
 }
