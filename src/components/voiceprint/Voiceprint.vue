@@ -62,7 +62,15 @@ export default {
           secondLine: response.wzQuesSed,
           hint: response.wzQuesThi,
         }
-        dispatch(this, ['VOICEPRINT_SetQuestion', data], (response) => {})
+        dispatch(this, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], (response) => {
+          if (response.wzQuesThird) {
+            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed}], (response) => {
+              dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesThird, hint: response.wzQuesThi}], (response) => {})  
+            })  
+          } else {
+            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed, hint: response.wzQuesThi}], (response) => {})  
+          }
+        })
       })
     },
     getQuestion() {
