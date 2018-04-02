@@ -62,13 +62,13 @@ export default {
           secondLine: response.wzQuesSed,
           hint: response.wzQuesThi,
         }
-        dispatch(this, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], (response) => {
+        dispatch(this, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], () => {
           if (response.wzQuesThird) {
-            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed}], (response) => {
-              dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesThird, hint: response.wzQuesThi}], (response) => {})  
+            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed}], () => {
+              dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesThird, hint: response.wzQuesThi}], () => {})  
             })  
           } else {
-            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed, hint: response.wzQuesThi}], (response) => {})  
+            dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed, hint: response.wzQuesThi}], () => {})  
           }
         })
       })
