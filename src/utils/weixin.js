@@ -106,14 +106,17 @@ export default {
       wzQustion: voiceprintQuestion.firstLine,
     }
     dispatch(self, ['WEIXIN_Translate', data], (response) => {
-      const data = {
-        firstLine: response.wzQuesFir,
-        secondLine: response.wzQuesSed,
-        hint: response.wzQuesThi,
-      }
       if (response.translateTxt) {
         dispatch(self, ['VOICEPRINT_SetQuestion', {answer: response.translateTxt}], (response) => {
-          dispatch(self, ['VOICEPRINT_SetQuestion', data], (response) => {})
+          dispatch(self, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], () => {
+            if (response.wzQuesThird) {
+              dispatch(self, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed}], () => {
+                dispatch(self, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesThird, hint: response.wzQuesThi}], () => {})  
+              })  
+            } else {
+              dispatch(self, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed, hint: response.wzQuesThi}], () => {})  
+            }
+          })
         })
       }
     })
