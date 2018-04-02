@@ -2,8 +2,8 @@
   <div class="container">
   	<img src="/static/img/voiceprint/avatar.png" class="avatar">
   	<div class="bubble">
-  		<p class="first">{{firstLine}}</p>
-  		<p class="second">{{secondLine}}</p>
+  		<p class="first" v-if="firstLine">{{firstLine}}</p>
+  		<p class="second" v-if="secondLine">{{secondLine}}</p>
   		<p class="hint" v-if="hint">{{hint}}</p>
       <!-- <div class="arrow"></div> -->
   	</div>

@@ -57,11 +57,6 @@ export default {
       if (openId)
         data.openId = openId
       dispatch(this, ['WEIXIN_Translate', data], (response) => {
-        const data = {
-          firstLine: response.wzQuesFir,
-          secondLine: response.wzQuesSed,
-          hint: response.wzQuesThi,
-        }
         dispatch(this, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], () => {
           if (response.wzQuesThird) {
             dispatch(this, ['VOICEPRINT_SetQuestion', {secondLine: response.wzQuesSed}], () => {
@@ -90,6 +85,7 @@ export default {
 
   watch: {
     onVoiceprintQuestion(voiceprintQuestion) {
+      alert(JSON.stringify(voiceprintQuestion))
       this.voiceprintData.push(voiceprintQuestion)
       setTimeout(() => {
         this.$refs.top.scrollTo(0, this.$refs.top.scrollHeight)
