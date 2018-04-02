@@ -105,7 +105,7 @@ export default {
       openId: openId,
       wzQustion: voiceprintQuestion.firstLine,
     }
-    dispatch(self, ['WEIXIN_Translate', data], (response) => {
+    dispatch(self, ['WEIXIN_Translate', data], () => {
       if (response.translateTxt) {
         dispatch(self, ['VOICEPRINT_SetQuestion', {answer: response.translateTxt}], (response) => {
           dispatch(self, ['VOICEPRINT_SetQuestion', {firstLine: response.wzQuesFir}], () => {
