@@ -87,9 +87,8 @@ export default {
     onVoiceprintQuestion(voiceprintQuestion) {
       this.voiceprintData.push(voiceprintQuestion)
       setTimeout(() => {
-        let scrollHeight = this.$refs.top.scrollHeight
         let intervalId = setInterval(() => {
-          if (--scrollHeight <= 0)
+          if (this.$refs.top.scrollTop + this.$refs.top.clientHeight === this.$refs.top.scrollHeight)
             clearInterval(intervalId)
 
           this.$refs.top.scrollBy(0, 1)
