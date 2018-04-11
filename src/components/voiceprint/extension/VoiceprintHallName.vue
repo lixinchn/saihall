@@ -29,7 +29,7 @@ export default {
     let succ = WeiXin.getVoiceprintSucc()
     // alert(succ)
     if (succ == '1') {
-      this.$router.push({path: 'voiceprinthallsucc'})
+      this.$router.replace({path: 'voiceprinthallsucc'})
       return
     }
 
