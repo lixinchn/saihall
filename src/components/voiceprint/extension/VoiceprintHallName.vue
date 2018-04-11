@@ -4,7 +4,7 @@
     <div class="head" v-if="!weiXinNeed">
       <img :src="onUserInfo.headimgurl">
       <p>请输入您的名字：</p>
-      <input class="name" type="text" v-model="name" @change="onNameChange">
+      <input class="name" type="text" v-model="name">
     </div>
     <div class="btn" @click="onNext" v-if="!weiXinNeed">下一步</div>
   </div>
@@ -60,15 +60,13 @@ export default {
     },
 
     onNext() {
-      dispatch(this, ['VOICEPRINT_SetName', {name: this.name}], (response) => {
-        let query = this.$route.query
-        query.name = this.name
-        this.$router.push({path: 'voiceprinthall', query: query})
+      dispatch(this, ['VOICEPRINT_ChangeName', {username: this.name, openId: WeiXin.getOpenId()}], (response) => {
+        dispatch(this, ['VOICEPRINT_SetName', {name: this.name}], (response) => {
+          let query = this.$route.query
+          query.name = this.name
+          this.$router.push({path: 'voiceprinthall', query: query})
+        })
       })
-    },
-
-    onNameChange() {
-      dispatch(this, ['VOICEPRINT_ChangeName', {username: this.name, openId: WeiXin.getOpenId()}], (response) => {})
     },
   },
 
