@@ -158,6 +158,18 @@ export default {
     localStorage.setItem('openId', openId)
   },
 
+  setVoiceprintSucc() {
+    localStorage.setItem('voiceprintSucc', '1')
+  },
+
+  getVoiceprintSucc() {
+    return localStorage.getItem('voiceprintSucc')
+  },
+
+  clearVoiceprintSucc() {
+    localStorage.removeItem('voiceprintSucc')
+  },
+
   redirectToGetcode() {
     const url = encodeURIComponent(location.href)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe15979ce3adafcd9&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
@@ -182,10 +194,12 @@ export default {
     }
     dispatch(self, ['VOICEPRINT_ReadVerse', data], (response) => {
       if (response.code) {
-        if (++self.succCount >= 3)
+        if (++self.succCount >= 3) {
+          this.setVoiceprintSucc()
           self.$router.push({path: 'voiceprinthallsucc', query: self.$route.query})
-        else
+        } else {
           self.getPoem()
+        }
         return
       }
       alert('语音有误，请重读页面中的文字')

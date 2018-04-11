@@ -26,6 +26,11 @@ export default {
     }
   },
   created() {
+    if (WeiXin.getVoiceprintSucc == '1') {
+      this.$router.push({path: 'voiceprinthallsucc', query: query})
+      return
+    }
+
     document.title = '录入声纹'
     WeiXin.init(this, dispatch)
     this.getUserInfo()

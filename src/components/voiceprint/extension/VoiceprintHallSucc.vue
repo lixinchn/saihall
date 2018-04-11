@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import WeiXin from '../../../utils/weixin'
 export default {
   name: 'WeiXinNeed',
   components: {},
@@ -19,6 +20,7 @@ export default {
   },
   methods: {
     onRecord() {
+      WeiXin.clearVoiceprintSucc()
       this.$router.push({path: 'voiceprinthall', query: this.$route.query})
     }
   },
