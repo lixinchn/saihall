@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="head">
-      <img :src="userInfo.headimgurl">
+      <img :src="onUserInfo.headimgurl">
       <p>{{name}}，请读出下面短句</p>
     </div>
     <div class="poem-container">
@@ -31,10 +31,10 @@ export default {
     }
   },
   created() {
+    this.name = this.$route.query.name
     this.getUserInfo()
     this.getPoem()
     this.downloadMicrophoneWaveImg()
-    this.name = this.$route.query.name
   },
   methods: {
     getPoem() {
@@ -72,9 +72,15 @@ export default {
     },
   },
   computed: {
-    ...mapGetters([
-      'userInfo'
-    ])
+    ...mapGetters({
+      onUserInfo: 'userInfo',
+    })
+  },
+  watch: {
+    onUserInfo(userInfo) {
+      if (!this.name)
+        this.name = userInfo.nickname
+    }
   },
 }
 </script>
