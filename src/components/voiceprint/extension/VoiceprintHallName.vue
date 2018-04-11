@@ -4,7 +4,7 @@
     <div class="head" v-if="!weiXinNeed">
       <img :src="onUserInfo.headimgurl">
       <p>请输入您的名字：</p>
-      <input class="name" type="text" v-model="name">
+      <input class="name" type="text" v-model="name" @change="onNameChange">
     </div>
     <div class="btn" @click="onNext" v-if="!weiXinNeed">下一步</div>
   </div>
@@ -65,6 +65,10 @@ export default {
         query.name = this.name
         this.$router.push({path: 'voiceprinthall', query: query})
       })
+    },
+
+    onNameChange() {
+      alert(this.name)
     },
   },
 
