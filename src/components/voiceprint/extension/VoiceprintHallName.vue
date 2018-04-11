@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-    if (WeiXin.getVoiceprintSucc == '1') {
+    if (WeiXin.getVoiceprintSucc() == '1') {
       this.$router.push({path: 'voiceprinthallsucc', query: query})
       return
     }
