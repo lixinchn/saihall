@@ -68,7 +68,7 @@ export default {
     },
 
     onNameChange() {
-      alert(this.name)
+      dispatch(this, ['VOICEPRINT_ChangeName', {username: this.name, openId: WeiXin.getOpenId()}], (response) => {})
     },
   },
 

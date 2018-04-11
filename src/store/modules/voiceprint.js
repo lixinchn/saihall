@@ -1,4 +1,4 @@
-import {API_VOICEPRINT_Translate, API_VOICEPRINT_GetPoem, API_VOICEPRINT_ReadVerse} from '../../api/voiceprint'
+import {API_VOICEPRINT_Translate, API_VOICEPRINT_GetPoem, API_VOICEPRINT_ReadVerse, API_VOICEPRINT_ChangeName} from '../../api/voiceprint'
 import {module_base_func} from './base'
 import {callback_func} from './callback/voiceprint'
 
@@ -23,6 +23,7 @@ const voiceprint = {
     VOICEPRINT_SetQuestion: module_base_func(null, callback_func.VOICEPRINT_SetQuestion),
     VOICEPRINT_GetPoem: module_base_func(API_VOICEPRINT_GetPoem),
     VOICEPRINT_ReadVerse: module_base_func(API_VOICEPRINT_ReadVerse),
+    VOICEPRINT_ChangeName: module_base_func(API_VOICEPRINT_ChangeName),
   }
 }
 

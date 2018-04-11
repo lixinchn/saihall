@@ -12,3 +12,7 @@ export function API_VOICEPRINT_GetPoem(data) {
 export function API_VOICEPRINT_ReadVerse(data) {
   return fetch_wrapper('readVerse', data)
 }
+
+export function API_VOICEPRINT_ChangeName(data) {
+  return fetch_wrapper('updateUserName', data)
+}
