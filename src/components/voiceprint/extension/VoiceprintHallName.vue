@@ -27,9 +27,9 @@ export default {
   },
   created() {
     let succ = WeiXin.getVoiceprintSucc()
-    alert(succ)
+    // alert(succ)
     if (succ == '1') {
-      this.$router.push({path: 'voiceprinthallsucc', query: query})
+      this.$router.push({path: 'voiceprinthallsucc'})
       return
     }
 
