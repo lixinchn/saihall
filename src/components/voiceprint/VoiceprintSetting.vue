@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div v-for="(item, index) in list" :key="index">
-      <p>openId: {{list.openId}}</p>
+    <div v-for="(item, index) in list" :key="index" class="list">
+      <p>openId: {{list.openid}}</p>
       <p>name: {{list.nickname}}</p>
       <p class="btn">删除</p>
     </div>
@@ -25,7 +25,7 @@ export default {
   methods: {
     getList() {
       dispatch(this, ['VOICEPRINT_GetVoiceList', {openId: WeiXin.getOpenId()}], (response) => {
-        alert(JSON.stringify(response))
+        this.list = resposne.user_list
       })
     }
   },
@@ -36,5 +36,14 @@ export default {
 .container {
   width: 100%;
   height: 100%;
+
+  .list {
+    border: 1px solid black;
+    margin-top: 10px;
+
+    .btn {
+      color: #1d82fe;
+    }
+  }
 }
 </style>
