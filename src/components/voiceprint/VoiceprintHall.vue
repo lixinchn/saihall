@@ -32,6 +32,7 @@ export default {
   },
   created() {
     this.name = this.$route.query.name
+    this.voicePriv()
     this.getUserInfo()
     this.getPoem()
     this.downloadMicrophoneWaveImg()
@@ -69,6 +70,15 @@ export default {
           WeiXin.uploadVoiceHall(localId, this, dispatch, this.poem, WeiXin.getOpenId())
         }
       })
+    },
+    voicePriv() {
+      if (WeiXin.getVoicePriv() == '1')
+        return
+      WeiXin.setVoicePriv()
+      wx.startRecord()
+      setTimeout(() => {
+        wx.stopRecord({success: (res) => {}})
+      }, 200)
     },
   },
   computed: {
