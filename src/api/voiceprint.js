@@ -16,3 +16,7 @@ export function API_VOICEPRINT_ReadVerse(data) {
 export function API_VOICEPRINT_ChangeName(data) {
   return fetch_wrapper('updateUserName', data)
 }
+
+export function API_VOICEPRINT_GetVoiceList(data) {
+  return fetch_wrapper('getVoiceList', data)
+}

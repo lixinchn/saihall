@@ -9,6 +9,7 @@ import VoiceMergeInput from '@/components/voicemerge/VoiceMergeInput'
 import VoiceMergeSucc from '@/components/voicemerge/VoiceMergeSucc'
 import VoiceMerge from '@/components/voicemerge/VoiceMerge'
 import GenerateVoiceprint from '@/components/voiceprint/GenerateVoiceprint'
+import VoiceprintSetting from '@/components/voiceprint/VoiceprintSetting'
 
 Vue.use(Router)
 
@@ -59,5 +60,10 @@ export default new Router({
       name: 'generatevoiceprint',
       component: GenerateVoiceprint,
     },
+    {
+      path: '/voiceprintsetting',
+      name: 'voiceprintsetting',
+      component: VoiceprintSetting,
+    }
   ]
 })
