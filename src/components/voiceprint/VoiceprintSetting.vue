@@ -25,7 +25,7 @@ export default {
   methods: {
     getList() {
       dispatch(this, ['VOICEPRINT_GetVoiceList', {openId: WeiXin.getOpenId()}], (response) => {
-        this.list = resposne.user_list
+        this.list = response.user_list
       })
     }
   },
