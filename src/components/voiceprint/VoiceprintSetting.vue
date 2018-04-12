@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div v-for="(item, index) in list" :key="index" class="list">
-      <p>openId: {{list.openid}}</p>
-      <p>name: {{list.nickname}}</p>
-      <p class="btn">删除</p>
+      <p>openId: {{item.openid}}</p>
+      <p>name: {{item.nickname}}</p>
+      <p class="btn" @click="onDelete(item.openid)">删除</p>
     </div>
   </div>
 </template>
@@ -27,7 +27,14 @@ export default {
       dispatch(this, ['VOICEPRINT_GetVoiceList', {openId: WeiXin.getOpenId()}], (response) => {
         this.list = response.user_list
       })
-    }
+    },
+
+    onDelete(openId) {
+      dispatch(this, ['VOICEPRINT_DeleteVoice', {openId: openId}], (response) => {
+        alert('删除成功')
+        this.getList()
+      })
+    },
   },
 }
 </script>
@@ -43,6 +50,7 @@ export default {
 
     .btn {
       color: #1d82fe;
+      cursor: pointer;
     }
   }
 }

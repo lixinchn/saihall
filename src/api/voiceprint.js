@@ -20,3 +20,7 @@ export function API_VOICEPRINT_ChangeName(data) {
 export function API_VOICEPRINT_GetVoiceList(data) {
   return fetch_wrapper('getVoiceList', data)
 }
+
+export function API_VOICEPRINT_DeleteVoice(data) {
+  return fetch_wrapper('voiceDelete', data)
+}
