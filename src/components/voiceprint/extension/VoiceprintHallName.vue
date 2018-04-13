@@ -33,13 +33,9 @@ export default {
       return
     }
 
-    try {
     document.title = '录入声纹'
     WeiXin.init(this, dispatch)
     this.getUserInfo()
-  }catch(e){
-    alert(JSON.stringify(e))
-  }
   },
   methods: {
     getUserInfo() {
