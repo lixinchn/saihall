@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     getUserInfo() {
-      alert(location.href)
       let code = this.getCode()
       const data = {code:  code}
       let openId = WeiXin.getOpenId()
@@ -57,13 +56,35 @@ export default {
       })
     },
     getCode() {
-      let url = new URL(location.href)
-      try {
-        let code = url.searchParams.get('code')
-        return code
-      } catch(e) {
-        return null
+      // let url = new URL(location.href)
+      // try {
+      //   let code = url.searchParams.get('code')
+      //   return code
+      // } catch(e) {
+      //   return null
+      // }
+      let params = this.parse_query_string(location.href.substr(location.href.indexOf('?') + 1))
+      return params.code || null
+    },
+
+    parse_query_string(query) {
+      var vars = query.split("&");
+      var query_string = {};
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+          query_string[pair[0]] = decodeURIComponent(pair[1]);
+          // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+          var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+          query_string[pair[0]] = arr;
+          // If third or later entry with this name
+        } else {
+          query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
       }
+      return query_string;
     },
 
     onNext() {
