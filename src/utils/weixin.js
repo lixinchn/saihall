@@ -55,7 +55,7 @@ export default {
         title: '搜狗体验厅', // 分享标题
         desc: '搜狗体验厅期待您的光临', // 分享描述
         link: shareUrl || location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: '', // 分享图标
+        imgUrl: 'http://navi.mse.sogou.com/static/img/logo.png', // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
         },
@@ -67,7 +67,7 @@ export default {
       wx.onMenuShareTimeline({
         title: '搜狗体验厅', // 分享标题
         link: shareUrl || location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-        imgUrl: '', // 分享图标
+        imgUrl: 'http://navi.mse.sogou.com/static/img/logo.png', // 分享图标
         success: function () {
           // 用户确认分享后执行的回调函数
         },
@@ -180,9 +180,7 @@ export default {
 
   redirectToGetcode() {
     const url = encodeURIComponent(location.href)
-    alert(url)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1dd290b0afdc29dc&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
-    alert(1)
   },
 
   uploadVoiceHall(localId, self, dispatch, poem, openId) {
