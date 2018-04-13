@@ -44,11 +44,14 @@ export default {
   },
   methods: {
     getUserInfo() {
+      alert(6)
       const data = {code: this.getCode()}
+      alert(7)
       let openId = WeiXin.getOpenId()
+      alert(8)
       if (openId)
         data.openid = openId
-      alert(6)
+      alert(9)
       dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
