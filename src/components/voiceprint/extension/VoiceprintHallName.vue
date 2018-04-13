@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     getUserInfo() {
+      alert(location.href)
       let code = this.getCode()
       const data = {code:  code}
       let openId = WeiXin.getOpenId()

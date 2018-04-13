@@ -180,7 +180,9 @@ export default {
 
   redirectToGetcode() {
     const url = encodeURIComponent(location.href)
+    alert(url)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1dd290b0afdc29dc&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`
+    alert(1)
   },
 
   uploadVoiceHall(localId, self, dispatch, poem, openId) {
