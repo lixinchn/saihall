@@ -14,6 +14,7 @@ export default {
         url: url,
       })
 
+    alert(0)
       this.config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl)
     })
   },
@@ -41,6 +42,7 @@ export default {
   },
 
   config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl) {
+    alert(1)
     wx.config({
       debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: 'wxe15979ce3adafcd9', // 必填，企业号的唯一标识，此处填写企业号corpid
@@ -51,6 +53,7 @@ export default {
     })
 
     wx.ready(function(){
+    alert(2)
       wx.onMenuShareAppMessage({
         title: '搜狗体验厅', // 分享标题
         desc: '搜狗体验厅期待您的光临', // 分享描述
@@ -64,6 +67,7 @@ export default {
         }
       })
 
+    alert(3)
       wx.onMenuShareTimeline({
         title: '搜狗体验厅', // 分享标题
         link: shareUrl || location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
@@ -73,6 +77,7 @@ export default {
         },
       })
 
+    alert(4)
       wx.onVoiceRecordEnd({
         // 录音时间超过一分钟没有停止的时候会执行 complete 回调
         complete: (res) => {

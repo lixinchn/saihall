@@ -36,6 +36,7 @@ export default {
     try {
     document.title = '录入声纹'
     WeiXin.init(this, dispatch)
+    alert(5)
     this.getUserInfo()
   }catch(e){
     alert(JSON.stringify(e))
@@ -47,6 +48,7 @@ export default {
       let openId = WeiXin.getOpenId()
       if (openId)
         data.openid = openId
+      alert(6)
       dispatch(this, ['WEIXIN_GetUserInfo', data], (response) => {
         if (!response.data.code) {
           console.log('没有用户信息，准备跳转')
