@@ -21,7 +21,9 @@ export default {
   methods: {
     onRecord() {
       WeiXin.clearVoiceprintSucc()
-      this.$router.push({path: 'voiceprinthall', query: this.$route.query})
+      dispatch(this, ['VOICEPRINT_DeleteVoice', {openId: WeiXin.getOpenId()}], (response) => {
+        this.$router.push({path: 'voiceprinthallname', query: this.$route.query})
+      })
     }
   },
 }
