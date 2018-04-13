@@ -59,7 +59,13 @@ export default {
     },
     getCode() {
       let url = new URL(location.href)
-      return url.searchParams.get('code')
+      try {
+        let code = url.searchParams.get('code')
+        return code
+      } catch(e) {
+        alert(JSON.stringify(e))
+        return null
+      }
     },
 
     onNext() {
