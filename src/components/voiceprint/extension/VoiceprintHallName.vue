@@ -43,7 +43,9 @@ export default {
   },
   methods: {
     getUserInfo() {
-      const data = {code: this.getCode() || ''}
+      let code = this.getCode()
+      alert(code)
+      const data = {code:  code}
       alert(JSON.stringify(data))
       let openId = WeiXin.getOpenId()
       if (openId)
