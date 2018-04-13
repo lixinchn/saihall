@@ -40,9 +40,7 @@ export default {
   methods: {
     getUserInfo() {
       let code = this.getCode()
-      alert(code)
       const data = {code:  code}
-      alert(JSON.stringify(data))
       let openId = WeiXin.getOpenId()
       if (openId)
         data.openid = openId
@@ -63,7 +61,6 @@ export default {
         let code = url.searchParams.get('code')
         return code
       } catch(e) {
-        alert(JSON.stringify(e))
         return null
       }
     },
