@@ -32,7 +32,7 @@ export default {
   },
   created() {
     this.name = this.$route.query.name
-    this.voicePriv()
+    // this.voicePriv()
     this.getUserInfo()
     this.getPoem()
     this.downloadMicrophoneWaveImg()
@@ -78,7 +78,7 @@ export default {
       wx.startRecord()
       setTimeout(() => {
         wx.stopRecord({success: (res) => {}})
-      }, 200)
+      }, 2000)
     },
   },
   computed: {
