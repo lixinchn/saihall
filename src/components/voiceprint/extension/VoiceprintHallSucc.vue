@@ -38,11 +38,11 @@ export default {
   .btn {
     background: url(/static/img/voiceprint/voiceprint-hall-succ-btn.png) no-repeat;
     background-size: 100% 100%;
-    width: 10em;
-    height: 3.5em;
-    line-height: 3.5em;
+    width: 8em;
+    height: 2.5em;
+    line-height: 2.5em;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
     color: #fff;
     margin: 2em auto;
   }
