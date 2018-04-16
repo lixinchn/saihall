@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <img src="/static/img/voiceprint/voiceprint-hall-succ.png" style="margin: 40px auto 0 auto;">
-    <p style="color: #38a4fb; font-size: 2em; margin: 1.5em auto 0 auto;">录入成功</p>
+    <img src="/static/img/voiceprint/voiceprint-hall-succ.png" style="margin: 60px auto 0 auto; width: 6em;">
+    <p style="color: #fff; font-size: 2em; margin: 1em auto 0 auto;">录入成功</p>
     <p style="color: #fff; font-size: 1em; margin: .8em auto 0 auto;">您可以在展厅中进行听声识人的体验了</p>
     <div class="btn" @click="onRecord">重新录入声纹</div>
   </div>
@@ -36,14 +36,12 @@ export default {
   height: 100%;
   background: url(/static/img/voiceprint/background.png) no-repeat;
   .btn {
-    background: url(/static/img/voiceprint/voiceprint-hall-succ-btn.png) no-repeat;
-    background-size: 100% 100%;
     width: 8em;
     height: 2.5em;
     line-height: 2.5em;
     text-align: center;
     font-size: 1em;
-    color: #fff;
+    color: #5e7cf5;
     margin: 2em auto;
   }
 }
