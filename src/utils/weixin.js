@@ -178,6 +178,20 @@ export default {
     return localStorage.getItem('voicePriv')
   },
 
+  voicePriv() {
+    if (!localStorage.allowRecord || localStorage.allowRecord !== 'true') {
+      wx.startRecord({
+        success: () => {
+          localStorage.allowRecord = 'true'
+          wx.stopRecord()
+        },
+        cancel: () => {
+          alert('用户拒绝授权录音')
+        }
+      })
+    }
+  },
+
   redirectToGetcode() {
     const url = encodeURIComponent(location.href)
     location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1dd290b0afdc29dc&redirect_uri=${url}&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect`

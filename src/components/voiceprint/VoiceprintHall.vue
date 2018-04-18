@@ -33,6 +33,7 @@ export default {
   created() {
     this.name = this.$route.query.name
     // this.voicePriv()
+    WeiXin.voicePriv()
     this.getUserInfo()
     this.getPoem()
     this.downloadMicrophoneWaveImg()
