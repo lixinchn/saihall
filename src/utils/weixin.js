@@ -179,6 +179,7 @@ export default {
   },
 
   voicePriv() {
+    alert(1)
     if (!localStorage.allowRecord || localStorage.allowRecord !== 'true') {
       wx.startRecord({
         success: () => {
