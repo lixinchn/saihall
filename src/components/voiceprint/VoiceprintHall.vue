@@ -60,7 +60,6 @@ export default {
     },
     onRecordBegin(e) {
       wx.startRecord()
-      alert('start')
       e.preventDefault()
       this.recording = true
     },
@@ -68,12 +67,10 @@ export default {
       this.recording = false
       wx.stopRecord({
         success: (res) => {
-          alert('end succ')
           let localId = res.localId
           WeiXin.uploadVoiceHall(localId, this, dispatch, this.poem, WeiXin.getOpenId())
         },
         error: () => {
-          alert('end err')
         },
       })
     },
