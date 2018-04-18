@@ -64,6 +64,7 @@ export default {
       this.recording = true
     },
     onRecordEnd() {
+      alert('end')
       this.recording = false
       wx.stopRecord({
         success: (res) => {
