@@ -34,7 +34,9 @@ export default {
     }
 
     document.title = '录入声纹'
-    WeiXin.init(this, dispatch)
+
+    let debug = this.$route.query.debug == '1' ? true : false
+    WeiXin.init(this, dispatch, undefined, debug)
     this.getUserInfo()
   },
   methods: {

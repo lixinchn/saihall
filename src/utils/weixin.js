@@ -1,7 +1,7 @@
 import sha1 from 'sha1'
 
 export default {
-  init(self, dispatch, shareUrl = undefined) {
+  init(self, dispatch, shareUrl = undefined, debug = false) {
     this.getJSAPITicket(self, dispatch).then((ticket) => {
       let noncestr = this.makeNoncestr()
       let timestamp = Date.now().toString()
@@ -14,7 +14,7 @@ export default {
         url: url,
       })
 
-      this.config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl)
+      this.config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl, debug)
     })
   },
 
@@ -40,9 +40,9 @@ export default {
     return url.searchParams.get('code')
   },
 
-  config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl) {
+  config(noncestr, timestamp, url, ticket, sig, self, dispatch, shareUrl, debug) {
     wx.config({
-      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      debug: debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: 'wx1dd290b0afdc29dc', // 必填，企业号的唯一标识，此处填写企业号corpid
       timestamp: timestamp, // 必填，生成签名的时间戳
       nonceStr: noncestr, // 必填，生成签名的随机串
