@@ -5,12 +5,14 @@
       <p>{{name}}，请读出下面短句</p>
     </div>
     <div class="poem-container">
+      <p style="color: #38a4fb; margin: 0 auto 1em auto;">{{succCount}}/3</p>
       <div :class="[{'wave-hall': recording}, 'poem-wave']"></div>
       <p class="poem-text">{{poem}}</p>
     </div>
 
     <div class="microphone-container">
       <div class="microphone" @touchstart="onRecordBegin" @touchend="onRecordEnd"></div>
+      <p style="color: #6180f2; font-size: 0.7em; margin: 1em auto 0 auto;">按住说话</p>
     </div>
   </div>
 </template>
@@ -130,7 +132,7 @@ export default {
   .poem-container {
     width: 100%;
     height: 11em;
-    padding-top: 4em;
+    padding-top: 3em;
     background: url(/static/img/voiceprint/voiceprint-poem-border.png) no-repeat;
     background-size: 100% 100%;
 
