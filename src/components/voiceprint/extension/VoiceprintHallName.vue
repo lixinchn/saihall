@@ -26,7 +26,6 @@ export default {
     }
   },
   created() {
-    alert(location.href.split('#')[0])
     let succ = WeiXin.getVoiceprintSucc()
     // alert(succ)
     if (succ == '1') {

@@ -31,7 +31,6 @@ export default {
     }
   },
   created() {
-    alert(location.href.split('#')[0])
     this.name = this.$route.query.name
     // this.voicePriv()
     WeiXin.voicePriv()
