@@ -10,6 +10,9 @@ import VoiceMergeSucc from '@/components/voicemerge/VoiceMergeSucc'
 import VoiceMerge from '@/components/voicemerge/VoiceMerge'
 import GenerateVoiceprint from '@/components/voiceprint/GenerateVoiceprint'
 import VoiceprintSetting from '@/components/voiceprint/VoiceprintSetting'
+import LipSynthesisInput from '@/components/lipsynthesis/LipSynthesisInput'
+import LipSynthesisSucc from '@/components/lipsynthesis/LipSynthesisSucc'
+import LipSynthesis from '@/components/LipSynthesis/LipSynthesis'
 
 Vue.use(Router)
 
@@ -64,6 +67,21 @@ export default new Router({
       path: '/voiceprintsetting',
       name: 'voiceprintsetting',
       component: VoiceprintSetting,
-    }
+    },
+    {
+      path: '/lipsynthesisinput',
+      name: 'lipsynthesisinput',
+      component: LipSynthesisInput,
+    },
+    {
+      path: '/lipsynthesissucc',
+      name: 'lipsynthesissucc',
+      component: LipSynthesisSucc,
+    },
+    {
+      path: '/lipsynthesis',
+      name: 'lipsynthesis',
+      component: LipSynthesis,
+    },
   ]
 })
