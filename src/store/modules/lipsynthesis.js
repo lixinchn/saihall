@@ -1,4 +1,4 @@
-import {API_LIPSYNTHESIS_SaveMouth} from '../../api/voicemerge'
+import {API_LIPSYNTHESIS_SaveMouth} from '../../api/lipsynthesis'
 import {module_base_func} from './base'
 
 const voicemerge = {
