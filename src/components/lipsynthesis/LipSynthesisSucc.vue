@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     onRecord() {
-      this.$router.push({path: 'voicemergeinput'})
+      this.$router.push({path: 'lipsynthesisinput'})
     }
   },
 }
